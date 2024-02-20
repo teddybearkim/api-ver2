@@ -4,7 +4,7 @@ let page = 1;
 let totalPage = 1;
 const pageSize = 10;
 let url = new URL(
-  `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines=${pageSize}`
+  `https://noona-times-v2.netlify.app/top-headlines?country=kr&pageSize=${pageSize}`
 );
 let menus = document.querySelectorAll("#menu-list button");
 menus.forEach((menu) =>
@@ -14,11 +14,11 @@ menus.forEach((menu) =>
 const getNews = async () => {
   try {
     url.searchParams.set("page", page);
-    console.log("Rrr", url);
+    
     let response = await fetch(url);
     let data = await response.json();
     if (response.status == 200) {
-      console.log("result", data);
+      
       if (data.totalResults == 0) {
         page = 0;
         totalPage = 0;
@@ -44,9 +44,9 @@ const getNews = async () => {
   }
 };
 const getLatestNews = () => {
-  page = 1; 
+  page = 1;
   url = new URL(
-    `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines=${pageSize}&apiKey=${API_KEY}`
+    `https://noona-times-v2.netlify.app/top-headlines?country=kr&pageSize=${pageSize}&apiKey=${API_KEY}`
   );
   getNews();
 };
@@ -55,9 +55,9 @@ const getNewsByTopic = (event) => {
   const topic = event.target.textContent.toLowerCase();
 
   page = 1;
-  
+
   url = new URL(
-    `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines=${pageSize}&category=${topic}&apiKey=${API_KEY}`
+    `https://noona-times-v2.netlify.app/top-headlines?country=kr&pageSize=${pageSize}&category=${topic}&apiKey=${API_KEY}`
   );
   getNews();
 };
@@ -75,9 +75,9 @@ const getNewsByKeyword = () => {
   const keyword = document.getElementById("search-input").value;
 
   page = 1;
-  
+
   url = new URL(
-    `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?q=${keyword}&country=kr&pageSize=${pageSize}&apiKey=${API_KEY}`
+    `https://noona-times-v2.netlify.app/top-headlines?country=kr&pageSize?q=${keyword}&pageSize=${pageSize}&apiKey=${API_KEY}`
   );
   getNews();
 };
@@ -89,8 +89,8 @@ const render = () => {
         <div class="col-lg-4">
             <img class="news-img"
                 src="${news.urlToImage ||
-        "http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?q=tbn:ANd9GcRqEWgS0uxxEYJ0PsOb2OgwyWvC0Gjp8NUdPw&usqp=CAU"
-        }" />
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqEWgS0uxxEYJ0PsOb2OgwyWvC0Gjp8NUdPw&usqp=CAU"
+        }" /> 
         </div>
         <div class="col-lg-8">
             <a class="title" target="_blank" href="${news.url}">${news.title

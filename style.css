@@ -16,28 +16,27 @@
 .head-line {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .head-line svg {
   max-width: 430px;
-  margin: 0px 20px;
+  margin: 20px;
 }
 .menus {
   display: flex;
   justify-content: center;
   padding: 5px 0 4px;
-  border-top: 1px solid rgb(235, 235, 235);
+  border-top: 1px solid #ededed;
   border-bottom: 4px double black;
   flex-wrap: wrap;
 }
 .menus button {
-  margin: 5px;
+  margin: 7px;
   border: none;
   background: none;
 }
 .menus button:hover {
   background-color: beige;
-  border-radius: 3px;
 }
 .news {
   display: flex;
@@ -51,41 +50,42 @@
   text-align: center;
 }
 .title {
-  font-size: 20pt;
+  font-size: 25pt;
   text-decoration: none;
   color: black;
   font-weight: bold;
-  margin-top: 2em;
+  margin-top: 2.5em;
 }
 .title:hover {
   text-decoration: underline;
-  color: blue;
+  color: rgb(126, 126, 252);
 }
 .side-menu {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
-  background-color: burlywood;
+  background-color: #f9ffa2;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 0.8s;
   padding-top: 60px;
 }
 .side-menu-list button {
-  margin: 5px;
+  margin: 10px;
   border: none;
-  background: none;
-  width: 120px;
+  background: #F000;
+  width: 100px;
+  font-weight: bold;
 }
 
 .side-menu .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+  right: 10px;
+  font-size: 26px;
+  margin-left: 80px;
   border: none;
   background: none;
 }
@@ -97,7 +97,7 @@
 }
 
 .side-menu-list button:hover {
-  background-color: beige;
+  background-color: rgb(167, 252, 164);
   border-radius: 3px;
 }
 .search-button {
@@ -122,6 +122,9 @@
   }
   .menus {
     display: none;
+  }
+  .head-line svg {
+    margin: 5px;
   }
 }
 .pagenation-nav {
